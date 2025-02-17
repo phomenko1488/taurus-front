@@ -5,7 +5,7 @@ import {Link, useNavigate} from 'react-router-dom';
 
 const Login = () => {
     const {login} = useAuth();
-    const [formData, setFormData] = useState({email: '', password: ''});
+    const [formData, setFormData] = useState({username: '', password: ''});
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -25,12 +25,12 @@ const Login = () => {
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label>Usename</Form.Label>
                     <Form.Control
-                        type="email"
+                        type="username"
                         required
-                        value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        value={formData.username}
+                        onChange={(e) => setFormData({...formData, username: e.target.value})}
                     />
                 </Form.Group>
 
