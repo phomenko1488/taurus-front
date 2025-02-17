@@ -2,7 +2,6 @@ import {useState} from 'react';
 import {Form, Button, Alert} from 'react-bootstrap';
 import {useAuth} from '../context/AuthContext';
 import {Link, useNavigate} from 'react-router-dom';
-
 const Login = () => {
     const {login} = useAuth();
     const [formData, setFormData] = useState({username: '', password: ''});
@@ -43,10 +42,10 @@ const Login = () => {
                         onChange={(e) => setFormData({...formData, password: e.target.value})}
                     />
                 </Form.Group>
-                {/*<div className="d-inline-flex w-100">*/}
+                <div className="d-inline-flex w-100">
                     <Button className={'w-50'} variant="primary" type="submit">Login</Button>
                     <Link  to={'/register'} className={'btn btn-outline-dark w-50'}>Sign up</Link>
-                {/*</div>*/}
+                </div>
             </Form>
         </div>
     );
