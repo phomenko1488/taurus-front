@@ -27,7 +27,7 @@ const Login = () => {
                 <Form.Group className="mb-3">
                     <Form.Label>Usename</Form.Label>
                     <Form.Control
-                        type="username"
+                        type="text"
                         required
                         value={formData.username}
                         onChange={(e) => setFormData({...formData, username: e.target.value})}
@@ -43,10 +43,10 @@ const Login = () => {
                         onChange={(e) => setFormData({...formData, password: e.target.value})}
                     />
                 </Form.Group>
-                <div className="d-inline-flex w-100">
+                {/*<div className="d-inline-flex w-100">*/}
                     <Button className={'w-50'} variant="primary" type="submit">Login</Button>
                     <Link  to={'/register'} className={'btn btn-outline-dark w-50'}>Sign up</Link>
-                </div>
+                {/*</div>*/}
             </Form>
         </div>
     );
