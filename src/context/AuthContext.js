@@ -1,6 +1,5 @@
 import { createContext, useState, useContext } from 'react';
 import api from '../services/api';
-const URL='https://a695-31-134-118-93.ngrok-free.app'
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -12,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (credentials) => {
         try {
-            const { data } = await api.post(URL+'/auth/login', credentials);
+            const { data } = await api.post('/v1/auth/login', credentials);
             localStorage.setItem('token', data.token);
             localStorage.setItem('user', JSON.stringify(data.user));
             setAuth({ token: data.token, user: data.user });
@@ -27,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (userData) => {
         try {
-            await api.post(URL+'/auth/register', userData);
+            await api.post('/v1/auth/register', userData);
             return { success: true };
         } catch (error) {
             return {
